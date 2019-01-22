@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AssemblyTitle>ArgumentHelper</AssemblyTitle>
+		<Description>A library to parse command line arguments.</Description>
+		<Copyright>Copyright © 2019-2019 Josh Close</Copyright>
+		<Authors>Josh Close</Authors>
+
+		<!-- Build -->
+		<Version>1.0.0</Version>
+		<FileVersion>1.0.0.0</FileVersion>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AssemblyName>ArgumentHelper</AssemblyName>
+
+		<!-- Sign -->
+		<!--
+		<AssemblyOriginatorKeyFile>ArgumentHelper.snk</AssemblyOriginatorKeyFile>
+		<SignAssembly>true</SignAssembly>
+		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+		-->
+
+		<!-- NuGet -->
+		<PackageId>ArgumentHelper</PackageId>
+		<PackageTags>command;line;argument;parser</PackageTags>
+		<!--<PackageReleaseNotes>https://joshclose.github.io/ArgumentHelper/change-log</PackageReleaseNotes>-->
+		<!--<PackageIconUrl>https://raw.github.com/JoshClose/ArgumentHelper/master/logo/.png</PackageIconUrl>-->
+		<PackageProjectUrl>https://github.com/JoshClose/ArgumentHelper</PackageProjectUrl>
+		<PackageLicenseUrl>https://raw.githubusercontent.com/JoshClose/CsvHelper/master/LICENSE.txt</PackageLicenseUrl>
+		<!--<PackageLicenseExpression>MS-PL OR Apache-2.0</PackageLicenseExpression>-->
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/JoshClose/ArgumentHelper</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+</Project>
