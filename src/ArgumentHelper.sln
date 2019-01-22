@@ -9,8 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArgumentHelper.Tests", "Arg
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95772026-6D93-4407-9F82-C1C854E63AA1}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
 		..\Pack NuGet Packages.bat = ..\Pack NuGet Packages.bat
 		..\Push NuGet Packages.bat = ..\Push NuGet Packages.bat
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global
