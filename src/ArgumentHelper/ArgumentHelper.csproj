@@ -28,7 +28,7 @@
 		<!--<PackageReleaseNotes>https://joshclose.github.io/ArgumentHelper/change-log</PackageReleaseNotes>-->
 		<!--<PackageIconUrl>https://raw.github.com/JoshClose/ArgumentHelper/master/logo/.png</PackageIconUrl>-->
 		<PackageProjectUrl>https://github.com/JoshClose/ArgumentHelper</PackageProjectUrl>
-		<PackageLicenseUrl>https://raw.githubusercontent.com/JoshClose/CsvHelper/master/LICENSE.txt</PackageLicenseUrl>
+		<PackageLicenseUrl>https://raw.githubusercontent.com/JoshClose/ArgumentHelper/master/LICENSE.txt</PackageLicenseUrl>
 		<!--<PackageLicenseExpression>MS-PL OR Apache-2.0</PackageLicenseExpression>-->
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/JoshClose/ArgumentHelper</RepositoryUrl>
