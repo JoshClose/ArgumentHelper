@@ -6,20 +6,35 @@ using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
-    public class ArgumentHelper
+	/// <summary>
+	/// Parses command line arguments.
+	/// </summary>
+	public class ArgumentHelper
     {
+		/// <summary>
+		/// Gets the configuration.
+		/// </summary>
 		public IConfiguration Configuration { get; private set; }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ArgumentHelper"/> class.
+		/// </summary>
 		public ArgumentHelper()
 		{
 			Configuration = new Configuration();
 		}
 
+		/// <summary>
+		/// Configure settings.
+		/// </summary>
 		public IConfigure Configure()
 		{
 			return new Configure(Configuration);
 		}
 
+		/// <summary>
+		/// Gets the usage information.
+		/// </summary>
 		public string GetUsage()
 		{
 			var usage = new StringBuilder();
@@ -103,6 +118,10 @@ namespace ArgumentHelper
 			return usage.ToString();
 		}
 
+		/// <summary>
+		/// Parses the arguments.
+		/// </summary>
+		/// <param name="args">The arguments to parse.</param>
 		public IArguments Parse(string[] args)
 		{
 			var arguments = new Arguments();

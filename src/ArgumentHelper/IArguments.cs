@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
-    public interface IArguments
+	/// <summary>
+	/// Configured arguments.
+	/// </summary>
+	public interface IArguments
     {
+		/// <summary>
+		/// Gets the options.
+		/// </summary>
 		IReadOnlyDictionary<string, string> Options { get; }
 
+		/// <summary>
+		/// Gets the commands.
+		/// </summary>
 		IReadOnlyDictionary<string, string> Commands { get; }
 
+		/// <summary>
+		/// Gets the arguments.
+		/// </summary>
 		IReadOnlyList<string> Arguments { get; }
     }
 }

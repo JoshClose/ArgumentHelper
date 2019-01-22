@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
+	/// <summary>
+	/// Configures configuration settings.
+	/// </summary>
 	public class Configure : IConfigure
 	{
 		private readonly IConfiguration configuration;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Configure"/> class.
+		/// </summary>
+		/// <param name="configuration">The configuration.</param>
 		public Configure(IConfiguration configuration)
 		{
 			this.configuration = configuration;
 		}
 
+		/// <summary>
+		/// Sets the program name.
+		/// </summary>
+		/// <param name="programName">The program name.</param>
 		public IConfigure ProgramName(string programName)
 		{
 			configuration.ProgramName = programName;
@@ -22,6 +33,10 @@ namespace ArgumentHelper
 			return this;
 		}
 
+		/// <summary>
+		/// Sets the description.
+		/// </summary>
+		/// <param name="description">The description.</param>
 		public IConfigure Description(string description)
 		{
 			configuration.Description = description;
@@ -29,6 +44,10 @@ namespace ArgumentHelper
 			return this;
 		}
 
+		/// <summary>
+		/// Sets the options.
+		/// </summary>
+		/// <param name="options">The options.</param>
 		public IConfigureArgument Option(params string[] options)
 		{
 			if (options == null)
@@ -50,6 +69,10 @@ namespace ArgumentHelper
 			return configureOption;
 		}
 
+		/// <summary>
+		/// Sets the commands.
+		/// </summary>
+		/// <param name="commands">The commands.</param>
 		public IConfigureArgument Command(params string[] commands)
 		{
 			if (commands == null)
@@ -71,6 +94,10 @@ namespace ArgumentHelper
 			return configureCommand;
 		}
 
+		/// <summary>
+		/// Sets the argument.
+		/// </summary>
+		/// <param name="argument">The argument.</param>
 		public IConfigureArgument Argument(string argument)
 		{
 			if (argument == null)
