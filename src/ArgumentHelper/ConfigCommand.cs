@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ArgumentHelper
 {
 	/// <summary>
-	/// Option data.
+	/// Command data.
 	/// </summary>
-	public class Option : IOption
+	public class ConfigCommand
 	{
 		/// <summary>
 		/// Gets or sets the description.
@@ -22,8 +18,8 @@ namespace ArgumentHelper
 		public bool HasValue { get; set; }
 
 		/// <summary>
-		/// Gets the options.
+		/// Gets the commands.
 		/// </summary>
-		public List<string> Options { get; set; } = new List<string>();
+		public List<string> Commands { get; } = new List<string>();
 	}
 }

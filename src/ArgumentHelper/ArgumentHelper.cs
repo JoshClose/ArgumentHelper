@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
@@ -124,25 +123,55 @@ namespace ArgumentHelper
 		/// <param name="args">The arguments to parse.</param>
 		public IArguments Parse(string[] args)
 		{
-			var arguments = new Arguments();
+			var arguments = new ArgumentsResult();
 
+			var argumentIndex = 0;
 			var queue = new Queue<string>(args);
 			while (queue.TryDequeue(out string arg))
 			{
-				string value = null;
 				var configOption = Configuration.Options.SingleOrDefault(o => o.Options.Contains(arg));
-				if (configOption.HasValue)
+				if (configOption != null)
 				{
-					if (!queue.TryPeek(out value) || Configuration.Options.Any(o => o.Options.Contains(value)))
+					string value = null;
+					if (configOption.HasValue)
 					{
-						Console.WriteLine($"No value was found for option '{arg}'.");
-						return null;
+						if (!queue.TryPeek(out value) || Configuration.Options.Any(o => o.Options.Contains(value)))
+						{
+							Console.WriteLine($"No value was found for option '{arg}'.");
+							return null;
+						}
+
+						queue.Dequeue();
 					}
 
-					queue.Dequeue();
+					arguments.AddOption(configOption, value);
+					continue;
 				}
 
-				arguments.AddOption(arg, value);
+				var configCommand = Configuration.Commands.SingleOrDefault(c => c.Commands.Contains(arg));
+				if (configCommand != null)
+				{
+					string value = null;
+					if (configCommand.HasValue)
+					{
+						if (!queue.TryPeek(out value) || Configuration.Commands.Any(c => c.Commands.Contains(value)))
+						{
+							Console.WriteLine($"No value was found for command '{arg}'.");
+							return null;
+						}
+
+						queue.Dequeue();
+					}
+
+					arguments.AddCommand(configCommand, value);
+					continue;
+				}
+
+				if (argumentIndex < Configuration.Arguments.Count)
+				{
+					arguments.AddArgument(arg);
+					argumentIndex++;
+				}
 			}
 
 			return arguments;

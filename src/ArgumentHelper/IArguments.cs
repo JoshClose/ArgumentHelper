@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ArgumentHelper
 {
@@ -14,12 +10,12 @@ namespace ArgumentHelper
 		/// <summary>
 		/// Gets the options.
 		/// </summary>
-		IReadOnlyDictionary<string, string> Options { get; }
+		IArgumentCollection Options { get; }
 
 		/// <summary>
 		/// Gets the commands.
 		/// </summary>
-		IReadOnlyDictionary<string, string> Commands { get; }
+		IArgumentCollection Commands { get; }
 
 		/// <summary>
 		/// Gets the arguments.

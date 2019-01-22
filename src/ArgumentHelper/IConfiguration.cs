@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ArgumentHelper
 {
@@ -34,12 +30,12 @@ namespace ArgumentHelper
 		/// <summary>
 		/// Gets or sets the options.
 		/// </summary>
-		List<IOption> Options { get; }
+		List<ConfigOption> Options { get; }
 
 		/// <summary>
 		/// Gets or sets the commands.
 		/// </summary>
-		List<ICommand> Commands { get; }
+		List<ConfigCommand> Commands { get; }
 
 		/// <summary>
 		/// Gets or sets the arguments.

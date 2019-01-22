@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
@@ -60,7 +56,7 @@ namespace ArgumentHelper
 				throw new ArgumentException($"Argument '{nameof(options)}' cannot be empty.");
 			}
 
-			var option = new Option();
+			var option = new ConfigOption();
 			option.Options.AddRange(options);
 			var configureOption = new ConfigureOption(this, option);
 
@@ -72,24 +68,26 @@ namespace ArgumentHelper
 		/// <summary>
 		/// Sets the commands.
 		/// </summary>
-		/// <param name="commands">The commands.</param>
-		public IConfigureArgument Command(params string[] commands)
+		/// <param name="command">The commands.</param>
+		public IConfigureArgument Command(string command)
 		{
-			if (commands == null)
+			if (command == null)
 			{
-				throw new ArgumentNullException(nameof(commands));
+				throw new ArgumentNullException(nameof(command));
 			}
 
-			if (commands.Length == 0)
+			command = command.Trim();
+
+			if (string.IsNullOrEmpty(command))
 			{
-				throw new ArgumentException($"Argument '{nameof(commands)}' cannot be empty.");
+				throw new ArgumentException($"Argument '{nameof(command)}' cannot be empty.");
 			}
 
-			var command = new Command();
-			command.Commands.AddRange(commands);
-			var configureCommand = new ConfigureCommand(this, command);
+			var configCommand = new ConfigCommand();
+			configCommand.Commands.Add(command);
+			var configureCommand = new ConfigureCommand(this, configCommand);
 
-			configuration.Commands.Add(command);
+			configuration.Commands.Add(configCommand);
 
 			return configureCommand;
 		}

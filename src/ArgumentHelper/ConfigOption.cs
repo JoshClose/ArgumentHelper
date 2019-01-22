@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ArgumentHelper
 {
 	/// <summary>
 	/// Option data.
 	/// </summary>
-	public interface IOption
-    {
+	public class ConfigOption
+	{
 		/// <summary>
 		/// Gets or sets the description.
 		/// </summary>
-		string Description { get; set; }
+		public string Description { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether this instance has value.
 		/// </summary>
-		bool HasValue { get; set; }
+		public bool HasValue { get; set; }
 
 		/// <summary>
 		/// Gets the options.
 		/// </summary>
-		List<string> Options { get; }
-    }
+		public List<string> Options { get; set; } = new List<string>();
+	}
 }

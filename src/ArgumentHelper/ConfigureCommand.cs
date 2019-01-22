@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArgumentHelper
+﻿namespace ArgumentHelper
 {
 	/// <summary>
 	/// Configures an argument.
@@ -12,14 +6,14 @@ namespace ArgumentHelper
 	public class ConfigureCommand : IConfigureArgument
 	{
 		private readonly IConfigure configure;
-		private readonly ICommand command;
+		private readonly ConfigCommand command;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ConfigureCommand"/> class.
 		/// </summary>
 		/// <param name="configure">The configure.</param>
 		/// <param name="command">The command.</param>
-		public ConfigureCommand(IConfigure configure, ICommand command)
+		public ConfigureCommand(IConfigure configure, ConfigCommand command)
 		{
 			this.configure = configure;
 			this.command = command;

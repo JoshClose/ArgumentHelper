@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArgumentHelper
+﻿namespace ArgumentHelper
 {
 	/// <summary>
 	/// Configures configuration settings.
@@ -33,7 +27,7 @@ namespace ArgumentHelper
 		/// Sets the commands.
 		/// </summary>
 		/// <param name="commands">The commands.</param>
-		IConfigureArgument Command(params string[] commands);
+		IConfigureArgument Command(string command);
 
 		/// <summary>
 		/// Sets the argument.

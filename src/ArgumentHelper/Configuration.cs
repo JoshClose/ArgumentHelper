@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArgumentHelper
 {
@@ -36,12 +33,12 @@ namespace ArgumentHelper
 		/// <summary>
 		/// Gets or sets the options.
 		/// </summary>
-		public List<IOption> Options { get; set; } = new List<IOption>();
+		public List<ConfigOption> Options { get; set; } = new List<ConfigOption>();
 
 		/// <summary>
 		/// Gets or sets the commands.
 		/// </summary>
-		public List<ICommand> Commands { get; set; } = new List<ICommand>();
+		public List<ConfigCommand> Commands { get; set; } = new List<ConfigCommand>();
 
 		/// <summary>
 		/// Gets or sets the arguments.
@@ -62,7 +59,7 @@ namespace ArgumentHelper
 		/// <param name="options">The options.</param>
 		public IConfigureArgument AddOption(params string[] options)
 		{
-			var option = new Option();
+			var option = new ConfigOption();
 			option.Options.AddRange(options);
 			var configureOption = new ConfigureOption(configure, option);
 
