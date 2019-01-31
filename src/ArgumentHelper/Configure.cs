@@ -7,13 +7,13 @@ namespace ArgumentHelper
 	/// </summary>
 	public class Configure : IConfigure
 	{
-		private readonly IConfiguration configuration;
+		private readonly Configuration configuration;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Configure"/> class.
 		/// </summary>
 		/// <param name="configuration">The configuration.</param>
-		public Configure(IConfiguration configuration)
+		public Configure(Configuration configuration)
 		{
 			this.configuration = configuration;
 		}
@@ -40,79 +40,26 @@ namespace ArgumentHelper
 			return this;
 		}
 
-		/// <summary>
-		/// Sets the options.
-		/// </summary>
-		/// <param name="options">The options.</param>
-		public IConfigureArgument Option(params string[] options)
+		public IConfigure Usage(string usage)
 		{
-			if (options == null)
-			{
-				throw new ArgumentNullException(nameof(options));
-			}
+			configuration.Usage = usage;
 
-			if (options.Length == 0)
-			{
-				throw new ArgumentException($"Argument '{nameof(options)}' cannot be empty.");
-			}
-
-			var option = new ConfigOption();
-			option.Options.AddRange(options);
-			var configureOption = new ConfigureOption(this, option);
-
-			configuration.Options.Add(option);
-
-			return configureOption;
+			return this;
 		}
 
-		/// <summary>
-		/// Sets the commands.
-		/// </summary>
-		/// <param name="command">The commands.</param>
-		public IConfigureArgument Command(string command)
+		public IConfigureSection Section() => Section(null);
+
+		public IConfigureSection Section(string section)
 		{
-			if (command == null)
+			var configurationSection = new ConfigurationSection
 			{
-				throw new ArgumentNullException(nameof(command));
-			}
+				Separator = configuration.Separator
+			};
+			configuration.Sections.Add(configurationSection);
 
-			command = command.Trim();
+			var configureSection = new ConfigureSection(configurationSection);
 
-			if (string.IsNullOrEmpty(command))
-			{
-				throw new ArgumentException($"Argument '{nameof(command)}' cannot be empty.");
-			}
-
-			var configCommand = new ConfigCommand();
-			configCommand.Commands.Add(command);
-			var configureCommand = new ConfigureCommand(this, configCommand);
-
-			configuration.Commands.Add(configCommand);
-
-			return configureCommand;
-		}
-
-		/// <summary>
-		/// Sets the argument.
-		/// </summary>
-		/// <param name="argument">The argument.</param>
-		public IConfigureArgument Argument(string argument)
-		{
-			if (argument == null)
-			{
-				throw new ArgumentNullException(nameof(argument));
-			}
-
-			argument = argument.Trim();
-
-			if (string.IsNullOrWhiteSpace(argument))
-			{
-				throw new ArgumentException($"Argument '{nameof(argument)}' cannot be empty.");
-			}
-
-			configuration.Arguments.Add(argument);
-
-			return new ConfigureArgument(this);
+			return configureSection;
 		}
 	}
 }

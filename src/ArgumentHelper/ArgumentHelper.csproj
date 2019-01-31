@@ -12,7 +12,7 @@
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<AssemblyName>ArgumentHelper</AssemblyName>
 
 		<!-- Sign -->
@@ -33,6 +33,10 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/JoshClose/ArgumentHelper</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
+		<DocumentationFile />
 	</PropertyGroup>
 
 </Project>

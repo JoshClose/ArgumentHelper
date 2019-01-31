@@ -14,11 +14,14 @@
 		/// <summary>
 		/// Sets the HasValue flag to true.
 		/// </summary>
-		IConfigureArgument HasValue();
+		IConfigureArgument HasValue(string name);
 
-		/// <summary>
-		/// Configure settings.
-		/// </summary>
-		IConfigure Configure();
+		IConfigureArgument HasValues(string name, int valueCount);
+
+		IConfigureArgument Argument(params string[] args);
+
+		IConfigureSection Section();
+
+		IConfigureSection Section(string name);
 	}
 }

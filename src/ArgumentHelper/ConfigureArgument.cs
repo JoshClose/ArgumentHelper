@@ -1,44 +1,61 @@
-﻿namespace ArgumentHelper
-{
-	/// <summary>
-	/// Configures an argument.
-	/// </summary>
-	public class ConfigureArgument : IConfigureArgument
-    {
-		private readonly IConfigure configure;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ConfigureArgument"/> class.
-		/// </summary>
-		/// <param name="configure">The configure.</param>
-		public ConfigureArgument(IConfigure configure)
+namespace ArgumentHelper
+{
+	public class ConfigureArgument : IConfigureArgument
+	{
+		private readonly ConfigurationArgument configurationArgument;
+		private readonly ConfigureSection configureSection;
+
+		public ConfigureArgument(ConfigureSection configureSection, ConfigurationArgument configurationArgument)
 		{
-			this.configure = configure;
+			this.configureSection = configureSection;
+			this.configurationArgument = configurationArgument;
 		}
 
-		/// <summary>
-		/// Sets the description.
-		/// </summary>
-		/// <param name="description">The description.</param>
+		public IConfigureArgument Argument(params string[] args)
+		{
+			configurationArgument.Arguments.AddRange(args);
+
+			return this;
+		}
+
 		public IConfigureArgument Description(string description)
 		{
+			configurationArgument.Description = description;
+
 			return this;
 		}
 
-		/// <summary>
-		/// Sets the HasValue flag to true.
-		/// </summary>
-		public IConfigureArgument HasValue()
+		public IConfigureArgument HasValue(string name)
 		{
+			configurationArgument.HasValues = true;
+			configurationArgument.ValueName = name;
+
 			return this;
 		}
 
-		/// <summary>
-		/// Configure settings.
-		/// </summary>
-		public IConfigure Configure()
+		public IConfigureArgument HasValues(string name, int valueCount)
 		{
-			return configure;
+			configurationArgument.HasValues = true;
+			configurationArgument.ValueName = name;
+			configurationArgument.ValueCount = valueCount;
+
+			return this;
 		}
+
+		public IConfigureSection Section()
+		{
+			return configureSection;
+		}
+
+		public IConfigureSection Section(string name)
+		{
+			return configureSection;
+		}		
 	}
 }

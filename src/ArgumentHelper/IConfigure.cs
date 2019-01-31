@@ -17,22 +17,10 @@
 		/// <param name="description">The description.</param>
 		IConfigure Description(string description);
 
-		/// <summary>
-		/// Sets the options.
-		/// </summary>
-		/// <param name="options">The options.</param>
-		IConfigureArgument Option(params string[] options);
+		IConfigure Usage(string usage);
 
-		/// <summary>
-		/// Sets the commands.
-		/// </summary>
-		/// <param name="commands">The commands.</param>
-		IConfigureArgument Command(string command);
+		IConfigureSection Section();
 
-		/// <summary>
-		/// Sets the argument.
-		/// </summary>
-		/// <param name="argument">The argument.</param>
-		IConfigureArgument Argument(string argument);
+		IConfigureSection Section(string section);
 	}
 }

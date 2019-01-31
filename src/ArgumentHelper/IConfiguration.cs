@@ -27,31 +27,8 @@ namespace ArgumentHelper
 		/// </summary>
 		string Description { get; set; }
 
-		/// <summary>
-		/// Gets or sets the options.
-		/// </summary>
-		List<ConfigOption> Options { get; }
+		string Usage { get; set; }
 
-		/// <summary>
-		/// Gets or sets the commands.
-		/// </summary>
-		List<ConfigCommand> Commands { get; }
-
-		/// <summary>
-		/// Gets or sets the arguments.
-		/// </summary>
-		List<string> Arguments { get; }
-
-		/// <summary>
-		/// Adds an option.
-		/// </summary>
-		/// <param name="options">The options.</param>
-		IConfigureArgument AddOption(params string[] options);
-
-		/// <summary>
-		/// Adds a command.
-		/// </summary>
-		/// <param name="commands">The commands.</param>
-		IConfigureArgument AddCommand(params string[] commands);
+		List<IConfigurationSection> Sections { get; }
 	}
 }
